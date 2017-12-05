@@ -68,11 +68,10 @@ public class Repository {
                     else return true;
                 }
                 if (!exists) {
-                    ps = conn.prepareStatement("INSERT INTO UserFood (username, password, email) VALUES (?,?,?,?)");
+                    ps = conn.prepareStatement("INSERT INTO UserFood (username, password, email) VALUES (?,?,?)");
                     ps.setString(1, email);
                     ps.setString(2, username);
                     ps.setString(3, password);
-                    ps.setString(1, email);
                     ps.executeUpdate();
                 }
             } catch (SQLException e) {
