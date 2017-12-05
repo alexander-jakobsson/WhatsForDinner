@@ -5,10 +5,39 @@
     <title>WhatsForDinner</title>
     <link href="styles.css" rel="stylesheet" type="text/css"></link>
 </head>
-<body>
-    <div>
-        <p id="test">INSERT LOGGA HÄR!!!!!</p>
-    </div>
+<body background="bilder/bakgrund.jpeg">
+    <div id="parallax">
+        <div id="logo">
+            <p id="logga">INSERT LOGGA HÄR!!!!!</p>
+        </div>
+        <div class="getinfo">
+                <input type="text" name="search" placeholder="Ange ingredienser..">
+        </div>
+        <div class="getinfo">
+            <p id="result">Resultat</p>
+        </div>
+        <div id="knappar">
+            <span class="button" id="favorite">Favoriter</span> 
+            <span class="button" id="history">Historik</span>
+        </div>
+        
+        
 
+        <div class="wrapper">
+            <div class="popup button" onclick="myFunction()">Info</div>
+            <div class="popuptext" id="info">
+                <p class="popup">Information om sidan</p>
+                <p class="popup"></p>
+                <p class="popup">Denna webapplikation är till för dig som har mat i kylen</p>
+                <p class="popup">men inte kommer på vad du ska laga. Vi använder oss</p> 
+                <p class="popup">utav de varor som finns i ditt kylskåp och jämför med vår</p>
+                <p class="popup">databas för att hitta recept som matchar dina ingredienser.</p>
+                <p class="popup">Vi hittar även resultat som du nästan har alla ingredienser</p>
+                <p class="popup">för om så önskas. Denna funktion går att stänga av via </p>
+                <p class="popup">vårat smarta filtreringssystem.</p>
+            </div>
+        </div>​
+    </div>
+    <script src="info.js"></script>
 </body>
 </html>
