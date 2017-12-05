@@ -27,7 +27,7 @@ public class MainController {
 
     @PostMapping("/loginSubmit")
     public ModelAndView loginSubmit(@ModelAttribute User user, HttpSession session) {
-        
+
         if (!user.getUsername().isEmpty()) {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("email", user.getEmail());
