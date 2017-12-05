@@ -1,6 +1,5 @@
 package com.academy.demo;
 
-import com.academy.demo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +19,7 @@ public class Repository {
         try {
             Connection conn = dataSource.getConnection();
             boolean login;
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM UserLogin WHERE email = ? AND password=?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM UserFood WHERE username = ? AND password = ?");
             ps.setString(1, username);
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
@@ -54,4 +53,44 @@ public class Repository {
                 rs.getString("email"));
     }
 
+    public boolean registration(String email, String password, String username, String confirmPassword) {
+        Connection dbconn = null;
+
+        if (password.equals(confirmPassword)) {
+
+            try {
+                Connection conn = dataSource.getConnection();
+                boolean exists = true;
+                PreparedStatement ps = conn.prepareStatement("SELECT username FROM UserFood WHERE username = ?");
+                ps.setString(1, username);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (!rs.next()) exists = false;
+                    else return true;
+                }
+                if (!exists) {
+                    ps = conn.prepareStatement("INSERT INTO UserFood (username, password, email) VALUES (?,?,?,?)");
+                    ps.setString(1, email);
+                    ps.setString(2, username);
+                    ps.setString(3, password);
+                    ps.setString(1, email);
+                    ps.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (dbconn != null) {
+                    try {
+                        dbconn.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        e.getErrorCode();
+                        System.out.println("Could not close the DB");
+                    }
+                }
+            }
+        } else {
+            System.out.println("Passwords doesn't match");
+        }
+        return false;
+    }
 }
