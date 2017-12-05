@@ -1,7 +1,185 @@
-#test {
+#logo {
     text-align: center;
-    background-color: #ce5a2e;
     font-family: 'Concert One';
+    width: 20%;
+    align-content: center;
+    margin: auto;
+    height: 150px;
+    
+    
+}
+.getinfo {
+    text-align: center;
+    width: 75%;
+    align-content: center;
+    margin: auto;
+}
+
+#search {
+    height: 50px;
+}
+
+#result {
+    height: 250px;
+}
+
+#knappar {
+    margin: auto;
+    text-align: center;
+}
+
+
+#favorite {
+    width: 7%;
+    margin: auto;
+    height:20px;
     
 }
 
+#history {
+    width: 7%;
+    margin: auto;
+    height:20px;
+}
+
+.button {
+    -moz-box-shadow: 3px 4px 0px 0px #899599;
+	-webkit-box-shadow: 3px 4px 0px 0px #899599;
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#3a629e;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+    }
+    .button:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+        background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+        background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+        background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+        background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+        background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+        background-color:#bab1ba;
+    }
+    .button:active {
+        position:relative;
+        top:1px;
+    }
+
+    /*#wrapper:hover {
+        text-align: center;
+        margin:auto;
+        position:relative;
+        bottom:30px;
+        left:0px;
+        visibility:hidden;
+
+    }*/
+
+    .wrapper {
+        text-align: center;
+        margin:auto;
+        margin-top: 25px;
+
+
+    }
+
+    /*.popup {
+        visibility:hidden;
+    }*/
+
+#parallax {
+
+
+}
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 50%;
+}
+
+
+
+
+/*POPUP*/
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+
+    
