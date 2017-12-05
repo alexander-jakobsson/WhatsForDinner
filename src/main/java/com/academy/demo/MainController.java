@@ -3,8 +3,8 @@ package com.academy.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -21,19 +21,22 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public ModelAndView login() {
-        return new ModelAndView("login").addObject("user", new User());
+    public ModelAndView logIn() {
+        return new ModelAndView("login");
     }
 
-    @PostMapping("/loginSubmit")
-    public ModelAndView loginSubmit(@ModelAttribute User user, HttpSession session) {
-
-        if (!user.getUsername().isEmpty()) {
-            session.setAttribute("username", user.getUsername());
-            session.setAttribute("email", user.getEmail());
-            return new ModelAndView("nextpage");
+    @PostMapping("/login")
+    public String submitLogIn(HttpSession session, @RequestParam String username, @RequestParam String password) {
+        User user = repository.logIn(username, password);
+        if (user != null) {
+            System.out.println("email and password matches");
+            if (session.getAttribute("user") == null) {
+                session.setAttribute("user", user);
+            }
+            return "index";
         } else {
-            return new ModelAndView("login");
+            System.out.println("Wrong email or password");
+            return "nextpage";
         }
     }
 
