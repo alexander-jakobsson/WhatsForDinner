@@ -27,8 +27,8 @@ public class MainController {
 
     @PostMapping("/loginSubmit")
     public ModelAndView loginSubmit(@ModelAttribute User user, HttpSession session) {
-        String userclass = repository.login(user.getUsername(), user.getPassword());
-        if (!userclass.isEmpty()) {
+        
+        if (!user.getUsername().isEmpty()) {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("email", user.getEmail());
             return new ModelAndView("nextpage");
