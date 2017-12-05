@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 
 @Component
 public class Repository {
+
     @Autowired
     private DataSource dataSource;
 }
