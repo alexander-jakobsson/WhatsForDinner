@@ -1,17 +1,15 @@
 body {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #eee;
 }
 
-.form-signin {
+.form-signin .dropdown-menu {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
 }
 
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+.form-signin .form-signin-heading .checkbox {
     margin-bottom: 10px;
 }
 
@@ -43,30 +41,15 @@ body {
     border-top-right-radius: 0;
 }
 
-#logo {
-    width: 400px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 0px;
-}
-
 .dropdown-menu {
     position: initial;
     display: initial;
-}
-
-div {
-    align-content: center;
+    width: 250px;
 }
 
 #loginBtn, #regBtn {
     margin-left: auto;
     margin-right: 5px;
-    background-color: #273940;
-    border-radius: 10px;
-    border: none;
-    color: white;
     text-align: center;
     font-size: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -80,33 +63,9 @@ h1 {
     font-style: italic;
 }
 
-#welcomeTitle {
-    color: #733232;
-    font-size: 40px;
-}
-
 h2 {
     color: #733232;
     font-style: italic;
-}
-
-.chatBtn {
-    outline: none;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    background-color: #273940;
 }
 
 #regBtn:hover {
@@ -117,22 +76,8 @@ button:hover {
     opacity: 0.5;
 }
 
-#loginDiv, #regiterDiv {
-    margin: 30px auto;
-    width: 250px;
-}
-
-.micro {
-    padding: 0px;
-    text-align: center;
-}
-
-#micro {
-    width: 600px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.dropdown-menu {
-    width: 250px;
+.registerDiv, .loginDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

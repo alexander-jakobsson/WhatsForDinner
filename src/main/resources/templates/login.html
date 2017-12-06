@@ -11,7 +11,7 @@
 <body background="bilder/bakgrund.jpeg">
 
 
-<div class="container">
+<div class="loginDiv">
 
     <form class="form-signin" th:action="@{/login}" method="post">
         <h2 class="form-signin-heading">Sign in</h2>
@@ -25,9 +25,10 @@
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a href="/register" class="btn btn-lg btn-primary btn-block">Register</a>
     </form>
 
-</div> <!-- /container -->
+</div>
 
 <!-- Bootstrap Script files: JQuery, popper.js and bootstrap.js -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
