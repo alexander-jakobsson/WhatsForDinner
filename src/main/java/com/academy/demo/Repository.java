@@ -47,13 +47,12 @@ public class Repository {
 
     private User getUser(ResultSet rs) throws SQLException {
         return new User(
-                rs.getInt("id"),
                 rs.getString("username"),
                 rs.getString("password"),
                 rs.getString("email"));
     }
 
-    public boolean registration(String email, String password, String username, String confirmPassword) {
+    public boolean registration(String username, String password, String email, String confirmPassword) {
         Connection dbconn = null;
 
         if (password.equals(confirmPassword)) {
@@ -69,9 +68,9 @@ public class Repository {
                 }
                 if (!exists) {
                     ps = conn.prepareStatement("INSERT INTO UserFood (username, password, email) VALUES (?,?,?)");
-                    ps.setString(1, email);
-                    ps.setString(2, username);
-                    ps.setString(3, password);
+                    ps.setString(1, username);
+                    ps.setString(2, password);
+                    ps.setString(3, email);
                     ps.executeUpdate();
                 }
             } catch (SQLException e) {
