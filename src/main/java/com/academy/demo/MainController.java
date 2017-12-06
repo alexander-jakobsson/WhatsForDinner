@@ -16,8 +16,24 @@ public class MainController {
 
     @Autowired
     private Repository repository;
+    User user;
 
-    public MainController() {
+
+    @PostMapping("/register")
+    public String submit(HttpSession session, @RequestParam String email, @RequestParam String password, @RequestParam String username, @RequestParam String confirmPassword) {
+
+        user = new User(username, password, email);
+        boolean exists = repository.registration(username, password, email, confirmPassword);
+        if (exists) {
+            System.out.println("user already exist");
+            return "register";
+        }
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public ModelAndView register() {
+        return new ModelAndView("register");
     }
 
     @GetMapping("/login")
