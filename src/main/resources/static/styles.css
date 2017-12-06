@@ -31,14 +31,14 @@
 
 #favorite {
     width: 7%;
-    margin: auto;
+    margin-right:20px;
     height:20px;
     
 }
 
 #history {
     width: 7%;
-    margin: auto;
+    margin-left: 20px;
     height:20px;
 }
 
@@ -82,21 +82,14 @@
         top:1px;
     }
 
-    /*#wrapper:hover {
-        text-align: center;
-        margin:auto;
-        position:relative;
-        bottom:30px;
-        left:0px;
-        visibility:hidden;
-
-    }*/
-
     .wrapper {
-        text-align: center;
+        text-align: right;
         margin:auto;
-        margin-top: 25px;
-
+        margin-top: 120px;
+        margin-right: 250px;
+    }
+    .popupstyle {
+        font-family: 'sans-serif';
 
     }
 
@@ -132,12 +125,13 @@ input[type=text]:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
 }
 
 /* The actual popup */
 .popup .popuptext {
     visibility: hidden;
-    width: 160px;
+    width: 500px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -147,7 +141,8 @@ input[type=text]:focus {
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -80px;
+    margin-left: -250px;
+
 }
 
 /* Popup arrow */
@@ -168,6 +163,7 @@ input[type=text]:focus {
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
 }
+
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
