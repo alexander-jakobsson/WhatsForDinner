@@ -1,3 +1,4 @@
+
 //adds class if not present, removes class if present.
 function myFunction() {
     var popup = document.getElementById("infopop");
@@ -5,7 +6,7 @@ function myFunction() {
     // popup.classList.toggle("hide");
 }
 
-document.getElementById("button").addEventListener("click", bookSearch, false);
+document.getElementById("searchButton").addEventListener("click", bookSearch, false);
 
 document.getElementById("searchBar").onkeypress = function(e) {
     if (!e) {
@@ -26,6 +27,7 @@ document.getElementById("searchBar").onkeypress = function(e) {
 function bookSearch() {
     var search = document.getElementById("searchBar").value;
     var searchArray = search.split(" ");
+    var results =  document.getElementById("results");
     var basicURL = "http://api.yummly.com/v1/api/recipes"
                     + "?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7";
     var finalURL = basicURL;
@@ -33,9 +35,10 @@ function bookSearch() {
         finalURL += "&allowedIngredient[]=" + searchArray[i];
         console.log(finalURL);
     }
+
     console.log(searchArray);
     console.log(finalURL);
-    document.getElementById("results").innerHTML = "";
+    results.innerHTML = "";
 
     $.ajax({
         url: finalURL,
@@ -46,10 +49,11 @@ function bookSearch() {
             // "http://api.yummly.com/v1/api/recipes?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7"
            // console.log(data);
             console.log(data.criteria);
-
+            console.log(data.matches);
             for (i = 0; i < data.matches.length; i++ ) {
 
-                console.log (data.matches[i].recipeName);
+               // results.innerHTML = data.matches[i].recipeName;
+                $( "#results" ).append( "<p>" + data.matches[i].recipeName + "</p>" );
 
             }
         },
