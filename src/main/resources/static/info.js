@@ -6,7 +6,7 @@ function myFunction() {
     // popup.classList.toggle("hide");
 }
 
-document.getElementById("searchButton").addEventListener("click", bookSearch, false);
+document.getElementById("searchButton").addEventListener("click", foodSearch, false);
 
 document.getElementById("searchBar").onkeypress = function(e) {
     if (!e) {
@@ -15,7 +15,7 @@ document.getElementById("searchBar").onkeypress = function(e) {
 
     var keyCode = e.keyCode;
     if (keyCode == '13'){ // Enter pressed
-        bookSearch();
+        foodSearch();
     }
 }
 
@@ -24,7 +24,7 @@ document.getElementById("searchBar").onkeypress = function(e) {
 // http://api.yummly.com/v1/api/recipes?_app_id=YOUR_ID&_app_key=YOUR_APP_KEY&q=onion+soup
 //    &allowedIngredient[]=garlic&allowedIngredient[]=cognac
 
-function bookSearch() {
+function foodSearch() {
     var search = document.getElementById("searchBar").value;
     var searchArray = search.split(" ");
     var results =  document.getElementById("results");
