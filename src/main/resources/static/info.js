@@ -29,7 +29,7 @@ function bookSearch() {
     var searchArray = search.split(" ");
     var results =  document.getElementById("results");
     var basicURL = "http://api.yummly.com/v1/api/recipes"
-                    + "?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7";
+                    + "?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7&requirePictures=true";
     var finalURL = basicURL;
     for (let i = 0; i < searchArray.length; i++) {
         finalURL += "&allowedIngredient[]=" + searchArray[i];
@@ -54,6 +54,7 @@ function bookSearch() {
             for (i = 0; i < data.matches.length; i++ ) {
 
                // results.innerHTML = data.matches[i].recipeName;
+                $( "#results" ).append( " <img src=\"" + data.matches[i].smallImageUrls + "\" >");
                 $( "#results" ).append( "<p>" + data.matches[i].recipeName + "</p>" );
 
             }
