@@ -87,7 +87,7 @@ public class Repository {
                 }
             }
         } else {
-            System.out.println("Passwords doesn't match");
+            System.out.println("Passwords don't match");
         }
         return false;
     }

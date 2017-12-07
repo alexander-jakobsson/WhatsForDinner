@@ -25,7 +25,7 @@ public class MainController {
         user = new User(username, password, email);
         boolean exists = repository.registration(username, password, email, confirmPassword);
         if (exists) {
-            System.out.println("user already exist");
+            System.out.println("user already exists");
             return "register";
         }
         return "login";
@@ -45,7 +45,7 @@ public class MainController {
     public String submitLogIn(HttpSession session, @RequestParam String username, @RequestParam String password) {
         User user = repository.logIn(username, password);
         if (user != null) {
-            System.out.println("email and password matches");
+            System.out.println("email and password match");
             if (session.getAttribute("user") == null) {
                 session.setAttribute("user", user);
             }
