@@ -46,6 +46,7 @@ function bookSearch() {
 
         success: function(data) {
 
+            // source: sourceRecipeURL
             // "http://api.yummly.com/v1/api/recipes?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7"
            // console.log(data);
             console.log(data.criteria);
@@ -53,8 +54,10 @@ function bookSearch() {
             for (i = 0; i < data.matches.length; i++ ) {
 
                // results.innerHTML = data.matches[i].recipeName;
+
                 $( "#results" ).append( " <img class='searchimg' src=\"" + data.matches[i].smallImageUrls + "\" >");
-                $( "#results" ).append( "<p class='searchp'>" + data.matches[i].recipeName + "</p>" );
+                $( "#results" ).append( "<p class='searchp'>" + data.matches[i].recipeName + "</p>" );               
+                $( "#results" ).append( "<p>" + data.matches[i].ingredients + "</p>" );
 
             }
         },
