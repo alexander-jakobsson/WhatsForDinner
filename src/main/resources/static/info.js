@@ -70,7 +70,6 @@ function foodSearch() {
             console.log(data.criteria);
             console.log(data.matches);
             for (i = 0; i < data.matches.length; i++ ) {
-<<<<<<< HEAD
                 currentMatch = data.matches[i];
                 getRecipe(currentMatch.id);
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
@@ -84,15 +83,6 @@ function foodSearch() {
                // $( "#results" ).append( "<p>" + currentMatch.recipeName + "</p>" );
                // $( "#results" ).append( "<p>" + currentMatch.ingredients + "</p>" );
                 
-=======
-
-               // results.innerHTML = data.matches[i].recipeName;
-
-                $( "#results" ).append( " <img class='searchimg' src=\"" + data.matches[i].smallImageUrls + "\" >");
-                $( "#results" ).append( "<p class='searchp'>" + data.matches[i].recipeName + "</p>" );               
-                $( "#results" ).append( "<p>" + data.matches[i].ingredients + "</p>" );
-
->>>>>>> 94411a133bdc99a538abd5b0d77276bbe2402bb3
             }
         },
 
