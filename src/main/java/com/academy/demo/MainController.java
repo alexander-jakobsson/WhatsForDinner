@@ -15,26 +15,9 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 
     @Autowired
-    private Repository repository;
+    Repository repository;
     User user;
 
-
-    @PostMapping("/register")
-    public String submit(HttpSession session, @RequestParam String email, @RequestParam String password, @RequestParam String username, @RequestParam String confirmPassword) {
-
-        user = new User(username, password, email);
-        boolean exists = repository.registration(username, password, email, confirmPassword);
-        if (exists) {
-            System.out.println("user already exists");
-            return "register";
-        }
-        return "login";
-    }
-
-    @GetMapping("/register")
-    public ModelAndView register() {
-        return new ModelAndView("register");
-    }
 
     @GetMapping("/login")
     public ModelAndView logIn() {
@@ -42,7 +25,14 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String submitLogIn(HttpSession session, @RequestParam String username, @RequestParam String password) {
+    public String submitLogIn(HttpSession session, @RequestParam String username, @RequestParam String password, String email, String confirmPassword) {
+        this.user = new User(username, password, email);
+        boolean exists = repository.registration(username, password, email, confirmPassword);
+        if (exists) {
+            System.out.println("user already exists");
+            return "login";
+        }
+
         User user = repository.logIn(username, password);
         if (user != null) {
             System.out.println("email and password match");
