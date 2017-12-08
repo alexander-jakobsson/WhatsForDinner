@@ -32,15 +32,7 @@ public class Repository {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (dbconn != null) {
-                try {
-                    dbconn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    e.getErrorCode();
-                    System.out.println("Could not close the DB");
-                }
-            }
+            closeDb(dbconn);
         }
         return null;
     }
@@ -76,19 +68,52 @@ public class Repository {
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
-                if (dbconn != null) {
-                    try {
-                        dbconn.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        e.getErrorCode();
-                        System.out.println("Could not close the DB");
-                    }
-                }
+                closeDb(dbconn);
             }
         } else {
             System.out.println("Passwords don't match");
         }
         return false;
+    }
+
+    public boolean addFavorite(int userID, String recipeName, String recipeID, String picURL) {
+        Connection dbconn = null;
+
+            try {
+                Connection conn = dataSource.getConnection();
+                boolean exists;
+                PreparedStatement ps = conn.prepareStatement("SELECT RecipeName FROM FavoriteFood WHERE userID = ? AND recipeName = ?");
+                ps.setInt(1, userID);
+                ps.setString(2, recipeName);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (!rs.next()) exists = false;
+                    else return true;
+                }
+                if (!exists) {
+                    ps = conn.prepareStatement("INSERT INTO FavoriteFood (userID, recipeID, recipeName, picURL) VALUES (?,?,?,?)");
+                    ps.setInt(1, userID);
+                    ps.setString(2, recipeID);
+                    ps.setString(3, recipeName);
+                    ps.setString(4, picURL);
+                    ps.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                closeDb(dbconn);
+            }
+        return false;
+    }
+
+    public void closeDb(Connection dbconn) {
+        if (dbconn != null) {
+            try {
+                dbconn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                e.getErrorCode();
+                System.out.println("Could not close the DB");
+            }
+        }
     }
 }
