@@ -1,13 +1,3 @@
-body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.form-signin .dropdown-menu {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
 
 .form-signin .form-signin-heading .checkbox {
     margin-bottom: 10px;
@@ -41,12 +31,6 @@ body {
     border-top-right-radius: 0;
 }
 
-.dropdown-menu {
-    position: initial;
-    display: initial;
-    width: 250px;
-}
-
 #loginBtn, #regBtn {
     margin-left: auto;
     margin-right: 5px;
@@ -58,13 +42,13 @@ body {
 h1 {
     margin-top: 0px;
     text-align: center;
-    color: #A65B4B;
+    color: green;
     font-size: 40px;
     font-style: italic;
 }
 
 h2 {
-    color: #733232;
+    color: darkgreen;
     font-style: italic;
 }
 
@@ -76,8 +60,18 @@ button:hover {
     opacity: 0.5;
 }
 
-.registerDiv, .loginDiv{
+.loginDiv {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*
+.loginBox {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 600px;
+    background: rgba(0,0,0,.5);
 }

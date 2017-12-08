@@ -50,7 +50,7 @@
     background-color: rgba(255,0,0,0.1);
     z-index:1;
     overflow: scroll;
-
+    overflow: visible;
 
 
 }
@@ -148,7 +148,6 @@ input[type=text]:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
 }
 
 /* The actual popup */
@@ -235,9 +234,15 @@ input[type=text]:focus {
 
 .searchp {
 
+
 }
 
 .searchimg {
+
+
+}
+
+.ingredients {
 
 
 }
