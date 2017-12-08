@@ -6,7 +6,7 @@ function myFunction() {
     // popup.classList.toggle("hide");
 }
 
-document.getElementById("searchButton").addEventListener("click", bookSearch, false);
+document.getElementById("searchButton").addEventListener("click", foodSearch, false);
 
 document.getElementById("searchBar").onkeypress = function(e) {
     if (!e) {
@@ -15,7 +15,7 @@ document.getElementById("searchBar").onkeypress = function(e) {
 
     var keyCode = e.keyCode;
     if (keyCode == '13'){ // Enter pressed
-        bookSearch();
+        foodSearch();
     }
 }
 
@@ -24,7 +24,29 @@ document.getElementById("searchBar").onkeypress = function(e) {
 // http://api.yummly.com/v1/api/recipes?_app_id=YOUR_ID&_app_key=YOUR_APP_KEY&q=onion+soup
 //    &allowedIngredient[]=garlic&allowedIngredient[]=cognac
 
-function bookSearch() {
+function getRecipe(recipeID) {
+    var finalURL = "http://api.yummly.com/v1/api/recipe/" 
+                    + recipeID
+                    + "?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7"
+
+    let myResult = $.ajax({
+        url: finalURL,
+        dataType: "json",
+        
+
+        success: function(data) {
+
+            $( "#results #" + recipeID + " .bigPicture" ).append( "<img src=\"" + data.images[0].hostedLargeUrl + "\" >")
+
+        },
+
+        type: 'GET'
+    })
+
+    return myResult;
+}
+
+function foodSearch() {
     var search = document.getElementById("searchBar").value;
     var searchArray = search.split(" ");
     var results =  document.getElementById("results");
@@ -35,7 +57,7 @@ function bookSearch() {
         finalURL += "&allowedIngredient[]=" + searchArray[i];
         console.log(finalURL);
     }
-
+   
     console.log(searchArray);
     console.log(finalURL);
     results.innerHTML = "";
@@ -45,20 +67,23 @@ function bookSearch() {
         dataType: "json",
 
         success: function(data) {
-
-            // source: sourceRecipeURL
-            // "http://api.yummly.com/v1/api/recipes?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7"
-           // console.log(data);
             console.log(data.criteria);
             console.log(data.matches);
             for (i = 0; i < data.matches.length; i++ ) {
 
-               // results.innerHTML = data.matches[i].recipeName;
-
-                $( "#results" ).append( "<img class='searchimg' onclick='jstoggle()' src=\"" + data.matches[i].smallImageUrls + "\" >");
-                $( "#results" ).append( "<p class='searchp recipe popuptext popup'>" + data.matches[i].recipeName + "</p>" );
-                $( "#results" ).append( "<p class='searchp ingredients popuptext popup'>" + data.matches[i].ingredients + "</p>" );
-
+                currentMatch = data.matches[i];
+                getRecipe(currentMatch.id);
+                $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
+                                        + "<div class=bigPicture>" //searchimg class + onclick= jstoggle
+                                        + "</div>"
+                                        + "<div class=description>" //searchp class
+                                        + "<p>" + currentMatch.recipeName + "</p>"
+                                        + "<p>" + currentMatch.ingredients + "</p>"
+                                        + "</div>"
+                                        + "</div>");
+               // $( "#results" ).append( "<p>" + currentMatch.recipeName + "</p>" );
+               // $( "#results" ).append( "<p>" + currentMatch.ingredients + "</p>" );
+                
             }
         },
 
@@ -72,5 +97,7 @@ function jstoggle() {
 // $(".searchimg").click(function() {
 //     $('.searchp').toggleClass("show");
 // })
+
+
 
 
