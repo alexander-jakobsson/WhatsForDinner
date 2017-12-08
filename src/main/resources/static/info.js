@@ -55,9 +55,9 @@ function bookSearch() {
 
                // results.innerHTML = data.matches[i].recipeName;
 
-                $( "#results" ).append( " <img class='searchimg' src=\"" + data.matches[i].smallImageUrls + "\" >");
-                $( "#results" ).append( "<p class='searchp'>" + data.matches[i].recipeName + "</p>" );               
-                $( "#results" ).append( "<p>" + data.matches[i].ingredients + "</p>" );
+                $( "#results" ).append( "<img class='searchimg' onclick='jstoggle()' src=\"" + data.matches[i].smallImageUrls + "\" >");
+                $( "#results" ).append( "<p class='searchp recipe popuptext popup'>" + data.matches[i].recipeName + "</p>" );
+                $( "#results" ).append( "<p class='searchp ingredients popuptext popup'>" + data.matches[i].ingredients + "</p>" );
 
             }
         },
@@ -66,5 +66,11 @@ function bookSearch() {
     })
 }
 
+function jstoggle() {
+    $('.searchp').toggleClass("show");
+}
+// $(".searchimg").click(function() {
+//     $('.searchp').toggleClass("show");
+// })
 
 
