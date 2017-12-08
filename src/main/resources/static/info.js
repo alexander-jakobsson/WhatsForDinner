@@ -36,7 +36,7 @@ function getRecipe(recipeID) {
 
         success: function(data) {
 
-            $( "#results #" + recipeID + " .bigPicture" ).append( "<img src=\"" + data.images[0].hostedLargeUrl + "\" >")
+            $( "#results #" + recipeID + " .bigPicture" ).append( "<img class='imageresult' src=\"" + data.images[0].hostedLargeUrl + "\" >")
 
         },
 
@@ -74,11 +74,11 @@ function foodSearch() {
                 currentMatch = data.matches[i];
                 getRecipe(currentMatch.id);
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
-                                        + "<div class=bigPicture>" //searchimg class + onclick= jstoggle
+                                        + "<div class='bigPicture'>" //searchimg class + onclick= jstoggle
                                         + "</div>"
-                                        + "<div class=description>" //searchp class
-                                        + "<p>" + currentMatch.recipeName + "</p>"
-                                        + "<p>" + currentMatch.ingredients + "</p>"
+                                        + "<div class='description'>" //searchp class
+                                        + "<p class='recipename'>" + currentMatch.recipeName + "</p>"
+                                        + "<p class='ingredientlist'>" + currentMatch.ingredients + "</p>"
                                         + "</div>"
                                         + "</div>");
                // $( "#results" ).append( "<p>" + currentMatch.recipeName + "</p>" );
