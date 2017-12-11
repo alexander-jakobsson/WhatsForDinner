@@ -36,7 +36,9 @@ function getRecipe(recipeID) {
 
         success: function(data) {
 
-            $( "#results #" + recipeID + " .bigPicture" ).append( "<img class='imageresult' src=\"" + data.images[0].hostedLargeUrl + "\" >")
+            $( "#results #" + recipeID + " .bigPicture" ).append( "<a href=" + data.source.sourceRecipeUrl
+                                     + " target=_blank>" +
+                                        "<img class='imageresult' src=\"" + data.images[0].hostedLargeUrl + "\" ></a>")
 
         },
 
