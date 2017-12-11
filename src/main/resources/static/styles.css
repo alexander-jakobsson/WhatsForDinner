@@ -6,12 +6,9 @@
     margin: auto;
     height: 150px;
     margin-bottom: 25px;
-    margin-top: 25px;
-    background-color: rgba(37, 39, 76, 0.5);
+    margin-top: -25px;
     border-radius: 6px;
-    
-    
-    
+
 }
 
 #logga {
@@ -19,9 +16,6 @@
     align-content: center;
 }
 
-#filler {
-    height:25px;
-}
 .getinfo {
     text-align: center;
     width: 75%;                                 
@@ -75,13 +69,18 @@
     width: 7%;
     margin-right:20px;
     height:20px;
-    
+    text-align: center;    
+    align-content: center;
+
+
 }
 
 #historybtn {
     width: 7%;
-    margin-left: 20px;
+    margin-left:20px;
     height:20px;
+    text-align: center;
+    align-content: center;
 }
 
 .button {
@@ -134,10 +133,23 @@
         font-family: 'sans-serif';
 
     }
+body {
+    /* The image used */
+    background-image: url("bilder/bakgrund.jpeg");
 
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
 
 #parallax {
-
 
 }
 input[type=text] {
@@ -286,7 +298,9 @@ input[type=text]:focus {
 }
 
 .recipename {
-    font-family: sans-serif;
+    font-family: Serif;
+    font-style: italic;
+    font-size: 150%;
 }
 
 /* Scrollbar effects */
