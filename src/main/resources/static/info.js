@@ -108,14 +108,19 @@ function jstoggle() {
 
 //pie chart script
 
-function pieChart(currentMatch) {
-    console.log("hej");
-    var chart = new CanvasJS.Chart("chartContainer", {
+function createChart(myButton) {
+    var currentButton = document.getElementbyId("myButton")
+    var currentFlavors = {
+        sweet: currentButton.getAttribute("sweet"),
+        sour: currentButton.getAttribute("sour"),
+        salty: currentButton.getAttribute("salty")
+    };
+
+    var chart = new CanvasJS.Chart("myButton", {
         animationEnabled: true,
         data: [{
             type: "pie",
             startAngle: 300,
-            yValueFormatString: "##0.00\"\"",
             indexLabel: "",
             dataPoints: [
                 {y: currentMatch.flavors.sweet, label: "Sweet"},
@@ -128,6 +133,13 @@ function pieChart(currentMatch) {
     chart.render();
 
 }
+var myPieButton = document.getElementById("chartContainer0");
+myPieButton.addEventListener(
+    "click",
+    function () {
+        createChart("chartContainer0")
+    }
+);
 
 
 
