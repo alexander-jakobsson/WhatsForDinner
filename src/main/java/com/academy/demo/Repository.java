@@ -39,6 +39,7 @@ public class Repository {
 
     private User getUser(ResultSet rs) throws SQLException {
         return new User(
+                rs.getInt("id"),
                 rs.getString("username"),
                 rs.getString("password"),
                 rs.getString("email"));
@@ -106,14 +107,14 @@ public class Repository {
         return false;
     }
 
-    public Recipe[] getFavorites(int userID) {
+    public String getFavorites(int UserID) {
         Connection dbconn = null;
-        Recipe[] favoriteRecipes = new Recipe[300];
+        Recipe[] favoriteRecipes = new Recipe[2];
 
         try {
             Connection conn = dataSource.getConnection();
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM FavoriteFood WHERE userID = ?");
-            ps.setInt(1, userID);
+            ps.setInt(1, UserID);
             ResultSet rs = ps.executeQuery();
             int counter = 0;
             while (rs.next()) {
@@ -129,7 +130,13 @@ public class Repository {
         } finally {
             closeDb(dbconn);
         }
-        return favoriteRecipes;
+        String favorites = "";
+        for (int i = 0; i < favoriteRecipes.length; i++) {
+            favorites = favorites + favoriteRecipes[i].getRecipeName() + ",";
+            favorites = favorites + favoriteRecipes[i].getRecipeID() + ",";
+            favorites = favorites + favoriteRecipes[i].getPicURL() + ";";
+        }
+        return favorites.substring(0, favorites.length() - 1);
     }
 
     public void closeDb(Connection dbconn) {
