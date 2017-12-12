@@ -38,7 +38,7 @@ function getRecipe(recipeID) {
 
             $( "#results #" + recipeID + " .bigPicture" ).append( "<a href=" + data.source.sourceRecipeUrl
                                      + " target=_blank>" +
-                                        "<img class='imageresult' src=\"" + data.images[0].hostedLargeUrl + "\" ></a>")
+                                        "<img title='Click to go to recipe' class='imageresult' src=\"" + data.images[0].hostedLargeUrl + "\" ></a>")
 
         },
 
@@ -53,7 +53,7 @@ function foodSearch() {
     var searchArray = search.split(" ");
     var results =  document.getElementById("results");
     var basicURL = "http://api.yummly.com/v1/api/recipes"
-                    + "?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7&requirePictures=true";
+                    + "?_app_id=92951a32&_app_key=d9bea4f85046c51b5bc24474077128d7&requirePictures=true&flavor.salty.min=0";
     var finalURL = basicURL;
     for (let i = 0; i < searchArray.length; i++) {
         finalURL += "&allowedIngredient[]=" + searchArray[i];
@@ -75,12 +75,15 @@ function foodSearch() {
 
                 currentMatch = data.matches[i];
                 getRecipe(currentMatch.id);
+                var ingredientsJoined  = currentMatch.ingredients.join(", ");
+                console.log(currentMatch.ingredients);
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
                                         + "<div class='bigPicture'>" //searchimg class + onclick= jstoggle
+                                        + "<div id='chartContainer" + i + "' 'salty=" + currentMatch.flavors.salty +"' 'sour=" + currentMatch.flavors.sour +"' 'sweet=" + currentMatch.flavors.sweet + "' style= height: 370px width = 100%>Click for flavor profile</div>"
                                         + "</div>"
                                         + "<div class='description'>" //searchp class
                                         + "<p class='recipename'>" + currentMatch.recipeName + "</p>"
-                                        + "<p class='ingredientlist'>" + currentMatch.ingredients + "</p>"
+                                        + "<p class='ingredientlist'>" + ingredientsJoined + "</p>"
                                         + "</div>"
                                         + "</div>");
                // $( "#results" ).append( "<p>" + currentMatch.recipeName + "</p>" );
@@ -95,11 +98,36 @@ function foodSearch() {
 
 function jstoggle() {
     $('.searchp').toggleClass("show");
+
 }
+
 // $(".searchimg").click(function() {
 //     $('.searchp').toggleClass("show");
 // })
 
+
+//pie chart script
+
+function pieChart(currentMatch) {
+    console.log("hej");
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        data: [{
+            type: "pie",
+            startAngle: 300,
+            yValueFormatString: "##0.00\"\"",
+            indexLabel: "",
+            dataPoints: [
+                {y: currentMatch.flavors.sweet, label: "Sweet"},
+                {y: currentMatch.flavors.sour, label: "Sour"},
+                {y: currentMatch.flavors.salty, label: "Salty"}
+
+            ]
+        }]
+    });
+    chart.render();
+
+}
 
 
 
