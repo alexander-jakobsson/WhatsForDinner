@@ -9,6 +9,7 @@
     margin-top: -25px;
     border-radius: 6px;
 
+
 }
 
 #logga {
@@ -294,13 +295,17 @@ input[type=text]:focus {
 }
 
 .ingredientlist {
-    font-family: sans-serif;
+    font-family: Serif;
 }
 
 .recipename {
     font-family: Serif;
     font-style: italic;
     font-size: 150%;
+}
+
+.flavors {
+
 }
 
 /* Scrollbar effects */
