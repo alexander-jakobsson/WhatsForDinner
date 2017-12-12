@@ -7,7 +7,7 @@ function myFunction() {
 }
 
 document.getElementById("searchButton").addEventListener("click", foodSearch, false);
-
+document.getElementById("favoritebtn").addEventListener("click", displayFavorites, false);
 document.getElementById("searchBar").onkeypress = function(e) {
     if (!e) {
     e = window.event;
@@ -92,6 +92,24 @@ function foodSearch() {
         type: 'GET'
     })
 }
+    function displayFavorites() {
+        var favorites = document.getElementById("favoritestring");
+        var favoritesArray = favorites.split(';');
+        for (var i = 0; i < favoritesArray.length; i++) {
+            var favoriteData = favoritesArray[i].split(',');
+        $("#results").append("<div id=\"" + i +"\">"
+            + "<div class='bigPicture'>"
+            + "<img class='imageresult' src=\"" + favoriteData[2] + "\">"
+            +"</div>"
+            + "<p class='recipename'>"+ favoriteData[0] + "\">" +
+        "</p>"
+        + "</div>"
+        + "</div>"
+    )}
+}
+
+
+
 
 function jstoggle() {
     $('.searchp').toggleClass("show");
