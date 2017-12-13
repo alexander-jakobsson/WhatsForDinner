@@ -105,8 +105,10 @@ function foodSearch() {
                 var ingredientsJoined  = currentMatch.ingredients.join(", ");
                 console.log(currentMatch.ingredients);
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
+
                                         + "<div class='bigPicture'>"
                                         + "<div id='chartContainer" + i + "' 'salty=" + currentMatch.flavors.salty +"' 'sour=" + currentMatch.flavors.sour +"' 'sweet=" + currentMatch.flavors.sweet + "' style= height: 370px width = 100%>Click for flavor profile</div>"
+
                                         + "</div>"
                                         + "<div class='description'>"
                                         + "<p class='recipename'>" + currentMatch.recipeName + "</p>"
