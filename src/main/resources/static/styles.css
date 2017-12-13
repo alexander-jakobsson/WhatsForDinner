@@ -31,15 +31,10 @@
 #knappar {
     margin: auto;
     text-align: center;
-    margin-top: 25px;
+    vertical-align: bottom;
 
 }
-#searchButton {
-    height:10px;
-    margin: auto;
-    text-align: center;
-    align-content: center;
-}
+
 
 #results {
     margin: auto;
@@ -67,25 +62,11 @@
 }
 
 #favoritebtn {
-    width: 7%;
-    margin-right:20px;
-    height:20px;
-    text-align: center;    
-    align-content: center;
-
-
-}
-
-#favoritestring {
-    display: none;
-}
-
-#historybtn {
-    width: 7%;
-    margin-left:20px;
-    height:20px;
+    margin: auto;
     text-align: center;
     align-content: center;
+
+
 }
 
 .button {
