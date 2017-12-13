@@ -102,16 +102,20 @@ function foodSearch() {
         results.innerHTML = "";
         for (var i = 0; i < favoritesArray.length; i++) {
             var favoriteData = favoritesArray[i].split(",");
-        $("#results").append("<div id=\"" + i + "\">"
+        $("#results").append("<div id=\"" + favoriteData[1] + "\">"
             + "<div class='bigPicture'>"
-            + "<img class='imageresult' src=\"" + favoriteData[2] + "\">"
+            + "<a href=" + favoriteData[1] + " target=_blank>"
+            + "<img title='Click to go to recipe' class='imageresult' src=\"" + favoriteData[2] + "\" ></a>"
             +"</div>"
-            + "<p class='recipename'>"+ favoriteData[0]  +
-        "</p>"
+            + "<div class='description'>"
+            + "<p class='recipename'>" + favoriteData[0] + "</p>"
         + "</div>"
-        + "</div>"
-    )}
+        + "</div>")
+    }
 }
+
+
+
 
 
 
