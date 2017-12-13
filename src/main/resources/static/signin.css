@@ -1,15 +1,21 @@
-
+body {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.form-signin, .nav-tabs, .tab-content{
+    max-width: 200px;
+    left: 50%
+}
 .form-signin .form-signin-heading .checkbox {
     margin-bottom: 10px;
 }
 
 .form-signin .checkbox {
-    font-weight: 400;
+    font-weight: normal;
 }
 
 .form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
     height: auto;
     padding: 10px;
     font-size: 16px;
@@ -31,47 +37,20 @@
     border-top-right-radius: 0;
 }
 
-#loginBtn, #regBtn {
-    margin-left: auto;
-    margin-right: 5px;
-    text-align: center;
-    font-size: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-h1 {
-    margin-top: 0px;
-    text-align: center;
-    color: green;
-    font-size: 40px;
-    font-style: italic;
-}
-
-h2 {
-    color: darkgreen;
-    font-style: italic;
-}
-
 #regBtn:hover {
     opacity: 0.5;
+}
+.btn-success {
+    background-color: darkgreen;
 }
 
 button:hover {
     opacity: 0.5;
 }
 
-.loginDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/*
-.loginBox {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 600px;
-    height: 600px;
-    background: rgba(0,0,0,.5);
+#loginDiv {
+    display: block;
+    position: relative;
+    margin: auto;
+    max-width: 200px;
 }
