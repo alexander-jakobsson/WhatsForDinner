@@ -96,15 +96,17 @@ function foodSearch() {
     })
 }
     function displayFavorites() {
-        var favorites = document.getElementById("favoritestring");
-        var favoritesArray = favorites.split(';');
+        var favorites = document.getElementById("favoritestring").innerHTML;
+        var favoritesArray = favorites.split(";");
+        var results =  document.getElementById("results");
+        results.innerHTML = "";
         for (var i = 0; i < favoritesArray.length; i++) {
-            var favoriteData = favoritesArray[i].split(',');
-        $("#results").append("<div id=\"" + i +"\">"
+            var favoriteData = favoritesArray[i].split(",");
+        $("#results").append("<div id=\"" + i + "\">"
             + "<div class='bigPicture'>"
             + "<img class='imageresult' src=\"" + favoriteData[2] + "\">"
             +"</div>"
-            + "<p class='recipename'>"+ favoriteData[0] + "\">" +
+            + "<p class='recipename'>"+ favoriteData[0]  +
         "</p>"
         + "</div>"
         + "</div>"
@@ -151,13 +153,13 @@ function createChart(myButton) {
     chart.render();
 
 }
-var myPieButton = document.getElementById("chartContainer0");
-myPieButton.addEventListener(
-    "click",
-    function () {
-        createChart("chartContainer0")
-    }
-);
+// var myPieButton = document.getElementById("chartContainer0");
+// myPieButton.addEventListener(
+//     "click",
+//     function () {
+//         createChart("chartContainer0")
+//     }
+// );
 
 
 
