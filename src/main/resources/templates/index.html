@@ -6,8 +6,6 @@
     <link href="/styles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body background="bilder/bakgrund.jpeg">
-<p id="filler"></p>
-    <div id="parallax">
         <div id="logo">
             <img id="logga" src="/bilder/logga.png"/>
 
@@ -17,19 +15,18 @@
                 <input type="text" id= "searchBar" name="searchBar" placeholder="Enter ingredients.."/>
         </div>
         <div id="knappar">
-        <div id="searchButton">
-            <p class="myButton">Search</p>
+
+            <p class="myButton" id="searchButton">Search</p>
             <p class="myButton" id="favoritebtn">Favourites</p>
-                <span type="hidden" id="favoritestring" th:text="${session.favorites}"></span>
-            </div>
+            
         </div>
         <div id="resultbox">
             <div id="results" class="popuptext popup"></div>
         </div>
-      
+
             <div  style="display: none" id="favoritestring" th:text="${session.favorites}"></div>
-        </div>
-        
+
+
 
         <div class="wrapper">
             <div class="popup button" onclick="myFunction()">Info
@@ -46,8 +43,9 @@
                 <p class="popupstyle">via our smart filtration system.</p>
             </div>
             </div>
-        </div>​
-    </div>
+        </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="/info.js"></script>
