@@ -7,72 +7,68 @@
     <!--Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400" rel="stylesheet"/>
     <link href="signin.css" rel="stylesheet"/>
 </head>
 <body background="bilder/bakgrund.jpeg">
-<div class="loginDiv">
-    <div class="col-sm-offset-3 col-sm-6">
-        <div class="loginBox">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
-                        <button type="button" class="btn btn-success" href="#loginid" aria-controls="login" role="tab"
-                                data-toggle="tab">Login
-                        </button>
-                    </li>
-                    <li role="presentation">
-                        <button type="button" class="btn btn-success" href="#registerid" aria-controls="register"
-                                role="tab" data-toggle="tab">Register
-                        </button>
-                    </li>
-                </ul>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active" id="loginid">
-                    <form class="form-signin" th:action="@{/login}" method="post">
-                        <label for="inputEmail" class="sr-only">Username</label>
-                        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username"/>
-                        <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" name="password" id="inputPassword" class="form-control"
-                               placeholder="Password"/>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="remember-me"/> Remember me
-                            </label>
-                        </div>
-                        <button class="btn btn-success" type="submit">Sign in</button>
-                    </form>
+<div id="loginDiv">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <button type="button" class="btn btn-success" href="#loginid" aria-controls="login" role="tab"
+                    data-toggle="tab">Login
+            </button>
+        </li>
+        <li role="presentation">
+            <button type="button" class="btn btn-success" href="#registerid" aria-controls="register"
+                    role="tab" data-toggle="tab">Register
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in show active" id="loginid">
+            <form class="form-signin" th:action="@{/login}" method="post">
+                <label for="inputEmail" class="sr-only">Username</label>
+                <input type="text" name="username" id="inputEmail" class="form-control"
+                       placeholder="Username"/>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                       placeholder="Password"/>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"/> Remember me
+                    </label>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="registerid">
-                    <div class="registerDiv">
-                        <form class="form-signin" th:action="@{/login}" method="post">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input name="username" type="text" class="form-control" id="username"
-                                       placeholder="Username"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleDropdownFormEmail2">Email address</label>
-                                <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail2"
-                                       placeholder="email@example.com"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleDropdownFormPassword2">Password</label>
-                                <input name="password" type="password" class="form-control"
-                                       id="exampleDropdownFormPassword2" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleDropdownFormPassword2">Confirm Password</label>
-                                <input name="confirmPassword" type="password" class="form-control"
-                                       id="exampleDropdownFormConfirmPassword2" placeholder="Password"/>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                </label>
-                            </div>
-                            <button type="submit" id="regBtn" class="btn btn-success">Register</button>
-                        </form>
-                    </div>
+                <button class="btn btn-success" type="submit">Sign in</button>
+            </form>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="registerid">
+            <form class="form-signin" th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input name="username" type="text" class="form-control" id="username"
+                           placeholder="Username"/>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormEmail2">Email address</label>
+                    <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail2"
+                           placeholder="email@example.com"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword2">Password</label>
+                    <input name="password" type="password" class="form-control"
+                           id="exampleDropdownFormPassword2" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword2">Confirm Password</label>
+                    <input name="confirmPassword" type="password" class="form-control"
+                           id="exampleDropdownFormConfirmPassword2" placeholder="Password"/>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <button type="submit" id="regBtn" class="btn btn-success">Register</button>
+            </form>
         </div>
     </div>
 </div>
@@ -87,6 +83,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
