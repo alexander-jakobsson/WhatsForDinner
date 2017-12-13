@@ -24,20 +24,13 @@
     height: 50px;
 }
 
-#favoritebtn {
-    margin-left: 10px;
-    margin: auto;
-    text-align: center;
-    align-content: center;
-}
 
-#searchButton {
+.buttonStyling{
     margin-right: 10px;
     margin: auto;
     text-align: center;
     align-content: center;
 }
-
 
 #knappar {
 
