@@ -79,7 +79,7 @@ function foodSearch() {
                 console.log(currentMatch.ingredients);
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
                                         + "<div class='bigPicture'>" //searchimg class + onclick= jstoggle
-                                        + "<div id='chartContainer" + i + "' 'salty=" + currentMatch.flavors.salty +"' 'sour=" + currentMatch.flavors.sour +"' 'sweet=" + currentMatch.flavors.sweet + "' style= height: 370px width = 100%>Click for flavor profile</div>"
+                                        + "<div id='chartContainer" + i + "' 'salty=" + currentMatch.flavors.salty +"' 'sour=" + currentMatch.flavors.sour +"' 'sweet=" + currentMatch.flavors.sweet + "' style= height: 370px width = 100%><a data='Click for flavor profile' href='#'/></div>"
                                         + "</div>"
                                         + "<div class='description'>" //searchp class
                                         + "<p class='recipename'>" + currentMatch.recipeName + "</p>"
