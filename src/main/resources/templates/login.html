@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:type="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>WhatsForDinner</title>
@@ -11,6 +11,10 @@
     <link href="signin.css" rel="stylesheet"/>
 </head>
 <body background="bilder/bakgrund.jpeg">
+<div id="logo">
+    <img src="/bilder/logga.png"/>
+</div>
+<h1 class="ml16">Whats for dinner</h1>
 <div id="loginDiv">
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active">
@@ -72,7 +76,16 @@
         </div>
     </div>
 </div>
-
+<div class="wrapper">
+    <div id="infopop">
+        <p class="popupstyle">
+            If you, like most people, have a hard time coming up with ideas
+            for what food to put on your plate every evening, consider your
+            problems solved.</p>
+        <p class="popupstyle"><em>Register to access thousands of delicious recipes!</em></p>
+    </div>
+    <button class="btn btn-success" id="aboutBtn" onclick="myFunction('infopop')">About</button>
+</div>
 <!-- Bootstrap Script files: JQuery, popper.js and bootstrap.js -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -84,5 +97,7 @@
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="/scripts.js"></script>
 </body>
 </html>
