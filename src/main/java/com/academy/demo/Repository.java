@@ -109,34 +109,27 @@ public class Repository {
 
     public String getFavorites(int UserID) {
         Connection dbconn = null;
-        Recipe[] favoriteRecipes = new Recipe[2];
+
 
         try {
             Connection conn = dataSource.getConnection();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM FavoriteFood WHERE userID = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM dbo.FavoriteFood WHERE userID = ?");
             ps.setInt(1, UserID);
             ResultSet rs = ps.executeQuery();
-            int counter = 0;
+            if (!rs.next()) return "";
+            StringBuilder favoriteRecipes = new StringBuilder();
             while (rs.next()) {
-                Recipe recipe = new Recipe
-                        (rs.getString("recipeName"),
-                        rs.getString("recipeID"),
-                        rs.getString("picURL"));
-                favoriteRecipes[counter] = recipe;
-                counter++;
+                        favoriteRecipes.append( rs.getString("recipeName") + ","
+                        + rs.getString("recipeID") + ","
+                        + rs.getString("picURL") +  ";");
             }
+            return favoriteRecipes.substring(0, favoriteRecipes.length() - 1);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             closeDb(dbconn);
         }
-        String favorites = "";
-        for (int i = 0; i < favoriteRecipes.length; i++) {
-            favorites = favorites + favoriteRecipes[i].getRecipeName() + ",";
-            favorites = favorites + favoriteRecipes[i].getRecipeID() + ",";
-            favorites = favorites + favoriteRecipes[i].getPicURL() + ";";
-        }
-        return favorites.substring(0, favorites.length() - 1);
+        return "";
     }
 
     public void closeDb(Connection dbconn) {
