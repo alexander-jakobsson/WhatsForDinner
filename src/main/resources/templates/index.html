@@ -16,20 +16,18 @@
         <div class="getinfo">
                 <input type="text" id= "searchBar" name="searchBar" placeholder="Enter ingredients.."/>
         </div>
+        <div id="knappar">
         <div id="searchButton">
             <p class="myButton">Search</p>
+            <p class="myButton" id="favoritebtn">Favourites</p>
+                <span type="hidden" id="favoritestring" th:text="${session.favorites}"></span>
+            </div>
         </div>
         <div id="resultbox">
             <div id="results" class="popuptext popup"></div>
         </div>
 
-        <div id="knappar">
-            <span class="myButton" id="favoritebtn">Favourites</span>
 
-            <span type="hidden" id="favoritestring" th:text="${session.favorites}"></span>
-            <span class="myButton" id="historybtn">History</span>
-        </div>
-        
         
 
         <div class="wrapper">
