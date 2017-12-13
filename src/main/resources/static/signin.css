@@ -37,15 +37,12 @@ body {
     border-top-right-radius: 0;
 }
 
-#regBtn:hover {
-    opacity: 0.5;
-}
 .btn-success {
     background-color: darkgreen;
 }
 
 button:hover {
-    opacity: 0.5;
+    opacity: 0.95;
 }
 
 #loginDiv {
@@ -53,4 +50,81 @@ button:hover {
     position: relative;
     margin: auto;
     max-width: 200px;
+}
+
+.ml16 {
+    color: darkgreen;
+    padding: 40px 0;
+    font-weight: 800;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    overflow: hidden;
+    text-align: center;
+    font-family: "Impact";
+}
+
+.ml16 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+#logo {
+    text-align: center;
+    font-family: 'Concert One';
+    width: 200px;
+    align-content: center;
+    margin: auto;
+    height: 150px;
+    border-radius: 6px;
+}
+#aboutBtn {
+    left: 75%;
+}
+
+/* The actual popup */
+#infopop {
+    display: none;
+    background-color: rgba(37, 39, 76, 0.5);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: relative;
+    z-index: 2;
+    max-width: 300px;
+}
+
+/* Popup arrow */
+#infopop::after {
+    content: "";
+    position: relative;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+#infopop .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+.wrapper {
+    margin:auto;
+}
+.popupstyle {
+    font-family: 'sans-serif';
 }
