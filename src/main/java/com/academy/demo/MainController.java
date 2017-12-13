@@ -2,7 +2,6 @@ package com.academy.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -56,5 +55,15 @@ public class MainController {
         cookie.setMaxAge(0);
         res.addCookie(cookie);
         return "login";
+    }
+
+    @PostMapping("/index")
+    public void addFavorite (HttpSession session, @RequestParam String newFavorite) {
+        String[] favoriteArray = newFavorite.split(",");
+        int userID = (int) session.getAttribute("userid");
+        String recipeName = favoriteArray[0];
+        String recipeID = favoriteArray[1];
+        String picURL = favoriteArray[2];
+        repository.addFavorite(userID, recipeName, recipeID, picURL );
     }
 }
