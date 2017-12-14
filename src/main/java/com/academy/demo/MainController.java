@@ -37,10 +37,8 @@ public class MainController {
         User user = repository.logIn(username, password);
         if (user != null) {
             System.out.println("email and password match");
-            if (session.getAttribute("user") == null) {
-                session.setAttribute("user", user);
-                session.setAttribute("userid", user.getId());
-            }
+            session.setAttribute("user", user);
+            session.setAttribute("userid", user.getId());
             return new ModelAndView("index").addObject("favorites", repository.getFavorites((int) session.getAttribute("userid")));
         } else {
             System.out.println("Wrong email or password");
