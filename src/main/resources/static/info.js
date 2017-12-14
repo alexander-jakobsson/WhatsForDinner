@@ -33,7 +33,7 @@ function getRecipe(recipeID) {
         success: function(data) {
 
             $( "#results #" + recipeID + " .bigPicture" )
-                .append( "<a href=" + data.source.sourceRecipeUrl
+                .prepend( "<a href=" + data.source.sourceRecipeUrl
                     + " target=_blank>" 
                     + "<img title='Click to go to recipe' class='imageresult' src=\"" 
                     + data.images[0].hostedLargeUrl 
