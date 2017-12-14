@@ -21,9 +21,9 @@
 
             <p class="btn btn-success buttonStyling" id="searchButton">Search</p>
             <p class="btn btn-success buttonStyling" id="favoritebtn">Favourites</p>
-            <form class="addFavorite"  th:action="@{/index}" method="post">
+            <form class="addFavorite"  action="/index" method="post">
                     <input id="toBeAdded" name="newFavorite" type="hidden" value=""/>
-                    <p class="btn btn-success buttonStyling" type="submit" id="addToFavoritesBtn">AddToFavourites</p>
+                    <input class="btn btn-success buttonStyling" type="submit" id="addToFavoritesBtn" value="Add to Favorites"></input>
             </form>
 
         </div>
@@ -31,7 +31,7 @@
             <div id="results" class="popuptext popup"></div>
         </div>
 
-            <div  style="display: none" id="favoritestring" th:text="${session.favorites}"></div>
+            <div  style="display: none" id="favoritestring" th:text="${favorites}"></div>
 
 
 
