@@ -118,21 +118,28 @@ function foodSearch() {
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
 
                                         + "<div class='bigPicture'>"
-                                        + "<div class='flavorProfile' function flavors()></div>"
-                                        + "<div id='chartContainer" + i 
-                                            + "' 'salty=" + currentMatch.flavors.salty 
-                                            + "' 'sour=" + currentMatch.flavors.sour 
-                                            + "' 'sweet=" + currentMatch.flavors.sweet
-                                            + "' 'piquant=" + currentMatch.flavors.piquant
-                                        + "</div>"
                                         + "<div id='" + currentMatch.id + "' class='description'>"
+                                        + "<div class='chartContainer' id='chartContainer" + i + "'>"
+                                        + "<img class='imgSize' id='salty" + i + "'src= ' '/>"
+                                        + "<img class='imgSize' id='sweet" + i + "' src= ' '/>"
+                                        + "<img class='imgSize' id='piquant" + i + "' src= ' '/>"
+                                        + "</div>"
+                                        + "<div>"
+                                        + "<span class='tasteDescription'>Salty</span>"
+                                        + "<span class='tasteDescription'>Sweet</span>"
+                                        + "<span class='tasteDescription'>Spicy</span>"
                                         + "<p class='recipename'>" + currentMatch.recipeName + "   "
                                         + '<span recipeID="' + currentMatch.id + '" class="heartFavoriteButton">♥</span>'
                                         + "</p>"
                                         + "<p class='ingredientlist'>" + ingredientsJoined + "</p>"
                                         + "</div>"
                                         + "</div>");
+
+                saltyRating(currentMatch.flavors.salty, i );
+                sweetRating(currentMatch.flavors.sweet, i );
+                piquantRating(currentMatch.flavors.piquant, i );
             }
+
         },
 
         type: 'GET'
@@ -168,7 +175,7 @@ function createChart(myButton) {
     var currentButton = document.getElementbyId("myButton")
     var currentFlavors = {
         sweet: currentButton.getAttribute("sweet"),
-        sour: currentButton.getAttribute("sour"),
+        piquant: currentButton.getAttribute("piquant"),
         salty: currentButton.getAttribute("salty")
     };
 
@@ -180,7 +187,7 @@ function createChart(myButton) {
             indexLabel: "",
             dataPoints: [
                 {y: currentMatch.flavors.sweet, label: "Sweet"},
-                {y: currentMatch.flavors.sour, label: "Sour"},
+                {y: currentMatch.flavors.piquant, label: "piquant"},
                 {y: currentMatch.flavors.salty, label: "Salty"}
             ]
         }]
@@ -233,24 +240,69 @@ $(document).on("click", "#searchButton", function(){
 
 $(document).on("click", "#removeFromFavoritesBtn", function(){
     beenClicked = false;
+    event.target.classList.toggle("selected");
+    removeFromFavoritesBrn.classList.toggle("notYetSelected");
+
 });
 
 
-function flavors(){
-    currentMatch = data.matches[i];
-    var spicy=currentMatch.flavors.piquant;
-    if (spicy<0.1667 ) {
-
-    }else if (spicy < 0.34 ){
-
-    }else if(spicy<0.501){
-
-    }else if(spicy<0.67){
-
-    }else if(spicy<0.84){
-
-    }else{
-
+function piquantRating(spicy, nr) {
+    // currentMatch = data.matches[i];
+    // var spicy=currentMatch.flavors.piquant;
+    if (spicy < 0.1567) {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth01.png";
+    } else if (spicy < 0.34) {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth02.png";
+    } else if (spicy < 0.501) {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth03.png";
+    } else if (spicy < 0.67) {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth04.png";
+    } else if (spicy < 0.84) {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth05.png";
+    } else if (spicy < 0.95) {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth06.png";
     }
-
+    else {
+        document.getElementById("piquant"+ nr).src = "/bilder/Sixth07.png";
+    }
+}
+    function sweetRating(sweet, nr) {
+        // currentMatch = data.matches[i];
+        // var spicy=currentMatch.flavors.piquant;
+        if (sweet < 0.1567) {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth01.png";
+        } else if (sweet < 0.34) {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth02.png";
+        } else if (sweet < 0.501) {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth03.png";
+        } else if (sweet < 0.67) {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth04.png";
+        } else if (sweet < 0.84) {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth05.png";
+        } else if (sweet < 0.95) {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth06.png";
+        }
+        else {
+            document.getElementById("sweet"+ nr).src = "/bilder/Sixth07.png";
+        }
+}
+function saltyRating(salty, nr) {
+    // currentMatch = data.matches[i];
+    // var spicy=currentMatch.flavors.piquant;
+    if (salty < 0.1567) {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth01.png";
+    } else if (salty < 0.34) {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth02.png";
+    } else if (salty < 0.501) {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth03.png";
+    } else if (salty < 0.67) {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth04.png";
+    } else if (salty < 0.84) {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth05.png";
+    } else if (salty < 0.95) {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth06.png";
+    }
+    else {
+        document.getElementById("salty"+ nr).src = "/bilder/Sixth07.png";
+    }
 }
