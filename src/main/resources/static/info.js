@@ -58,10 +58,16 @@ function addToFavorites(recipeID) {
         
 
         success: function(data) {
-                    document.getElementById("toBeAdded").value =
-                    data.name + ", "
-                    + data.source.sourceRecipeUrl + ", "
-                    + data.images[0].hostedLargeUrl
+            var dataString = data.name + ", "
+            + data.source.sourceRecipeUrl + ", "
+            + data.images[0].hostedLargeUrl;
+
+            if (document.getElementById("toBeAdded").value == dataString) {
+                document.getElementById("toBeAdded").value = "";
+            } else {
+                document.getElementById("toBeAdded").value = dataString;
+            }
+                    
 
         },
 
@@ -69,6 +75,14 @@ function addToFavorites(recipeID) {
     })
 
     return myResult;
+}
+
+function removeFromFavorites(recipeName) {
+    /*(if (document.getElementById("toBeRemoved").value == recipeName){
+        document.getElementById("toBeRemoved").value = "";
+    } else { */
+        document.getElementById("toBeRemoved").value = recipeName;        
+    
 }
 
 function foodSearch() {
@@ -191,9 +205,10 @@ $(document).on("click","#results .heartFavoriteButton", function(){
 });
 
 $(document).on("click","#results .removefavorite", function(){
-    console.log("You just clicked a Heart Button! :)")
+    console.log("You just clicked a Remove Button! :)")
     console.log(event.target);
-    addToFavorites(event.target.getAttribute("recipeID"));
+    removeFromFavorites(event.target.getAttribute("id"));
+   // addToFavorites(event.target.getAttribute("recipeID"));
 });
 
 function flavors(){
