@@ -26,26 +26,23 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String submitLogIn( HttpSession session, @RequestParam String username, @RequestParam String password, String email, String confirmPassword) {
+    public ModelAndView submitLogIn( HttpSession session, @RequestParam String username, @RequestParam String password, String email, String confirmPassword) {
         this.user = new User( username, password, email);
         boolean exists = repository.registration(username, password, email, confirmPassword);
         if (exists) {
             System.out.println("user already exists");
-            return "login";
+            return new ModelAndView("login");
         }
 
         User user = repository.logIn(username, password);
         if (user != null) {
             System.out.println("email and password match");
-            if (session.getAttribute("user") == null) {
-                session.setAttribute("user", user);
-                session.setAttribute("userid", user.getId());
-                session.setAttribute("favorites", repository.getFavorites((int) session.getAttribute("userid")));
-            }
-            return "index";
+            session.setAttribute("user", user);
+            session.setAttribute("userid", user.getId());
+            return new ModelAndView("index").addObject("favorites", repository.getFavorites((int) session.getAttribute("userid")));
         } else {
             System.out.println("Wrong email or password");
-            return "nextpage";
+            return new ModelAndView("nextpage");
         }
     }
 
@@ -56,5 +53,25 @@ public class MainController {
         cookie.setMaxAge(0);
         res.addCookie(cookie);
         return "login";
+    }
+
+    @PostMapping ("/index")
+    public ModelAndView addFavorite (HttpSession session, @RequestParam String newFavorite) {
+        String[] favoriteData = newFavorite.split(",");
+        int userID = (int) session.getAttribute("userid");
+        String recipeName = favoriteData[0];
+        String recipeURL = favoriteData[1];
+        String pictureURL = favoriteData[2];
+        repository.addFavorite(userID, recipeName, recipeURL, pictureURL);
+        session.setAttribute("favorites", repository.getFavorites((int) session.getAttribute("userid")));
+        return new ModelAndView("index").addObject("favorites", repository.getFavorites((int) session.getAttribute("userid")));
+    }
+
+    @PostMapping ("/indexr")
+    public ModelAndView removeFavorites (HttpSession session, @RequestParam String notFavoriteAnymore) {
+        int userID = (int) session.getAttribute("userid");
+        repository.removeFavorite(userID, notFavoriteAnymore);
+        session.setAttribute("favorites", repository.getFavorites((int) session.getAttribute("userid")));
+        return new ModelAndView("index").addObject("favorites", repository.getFavorites((int) session.getAttribute("userid")));
     }
 }

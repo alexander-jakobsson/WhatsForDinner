@@ -78,7 +78,7 @@ public class Repository {
     }
 
 
-    public boolean addFavorite(int userID, String recipeName, String recipeID, String picURL) {
+    public void addFavorite(int userID, String recipeName, String recipeID, String picURL) {
         Connection dbconn = null;
 
         try {
@@ -89,7 +89,10 @@ public class Repository {
             ps.setString(2, recipeName);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) exists = false;
-                else return true;
+                else {
+                    System.out.println("already exists");
+                    return;
+                }
             }
             if (!exists) {
                 ps = conn.prepareStatement("INSERT INTO dbo.favoriteFood (userID, recipeID, recipeName, picURL) VALUES (?,?,?,?)");
@@ -104,7 +107,32 @@ public class Repository {
         } finally {
             closeDb(dbconn);
         }
-        return false;
+        System.out.println("item added?");
+    }
+
+    public void removeFavorite(int userID, String recipeName) {
+        Connection dbconn = null;
+
+        try {
+            Connection conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT RecipeName FROM FavoriteFood WHERE userID = ? AND recipeName = ?");
+            ps.setInt(1, userID);
+            ps.setString(2, recipeName);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    ps = conn.prepareStatement("  DELETE FROM dbo.FavoriteFood \n" +
+                            "  where userID = ? AND RecipeName = ?");
+                    ps.setInt(1, userID);
+                    ps.setString(2, recipeName);
+                    ps.executeUpdate();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeDb(dbconn);
+        }
+        System.out.println("item added?");
     }
 
     public String getFavorites(int UserID) {
@@ -116,14 +144,17 @@ public class Repository {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM dbo.FavoriteFood WHERE userID = ?");
             ps.setInt(1, UserID);
             ResultSet rs = ps.executeQuery();
-            if (!rs.next()) return "";
+
             StringBuilder favoriteRecipes = new StringBuilder();
             while (rs.next()) {
                         favoriteRecipes.append( rs.getString("recipeName") + ","
                         + rs.getString("recipeID") + ","
                         + rs.getString("picURL") +  ";");
             }
-            return favoriteRecipes.substring(0, favoriteRecipes.length() - 1);
+            if (favoriteRecipes.length()<1){ return "";}
+            else {
+                return favoriteRecipes.substring(0, favoriteRecipes.length() - 1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

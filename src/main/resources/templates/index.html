@@ -20,6 +20,9 @@
                 <span></span>
                 <span></span>
 
+        <div id="logo">
+            <img id="logga" src="/bilder/logga.png"/>
+
                 <ul id="menu">
                     <a href="#"><li>Home</li></a>
                     <a href="#"><li>About</li></a>
@@ -40,14 +43,21 @@
 
             <p class="btn btn-success buttonStyling" id="searchButton">Search</p>
             <p class="btn btn-success buttonStyling" id="favoritebtn">Favourites</p>
-            <p class="btn btn-success buttonStyling" id="addToFavoritesBtn">AddToFavourites</p>
-            
+            <form class="addFavorite"  action="/index" method="post">
+                    <input id="toBeAdded" name="newFavorite" type="hidden" value=""/>
+                    <input class="btn btn-success buttonStyling notYetSelected" type="submit" id="addToFavoritesBtn" value="Add to Favorites"></input>
+            </form>
+            <form class="removeFavorite" action="/indexr" method="post">
+                <input id="toBeRemoved" name="notFavoriteAnymore" type="hidden" value=""/>
+                <input class="btn btn-success buttonStyling invisible" type="submit" id="removeFromFavoritesBtn" value="Remove Favorite"></input>
+            </form>
+
         </div>
         <div id="resultbox">
             <div id="results" class="popuptext popup"></div>
         </div>
 
-            <div  style="display: none" id="favoritestring" th:text="${session.favorites}"></div>
+            <div  style="display: none" id="favoritestring" th:text="${favorites}"></div>
 
 
 

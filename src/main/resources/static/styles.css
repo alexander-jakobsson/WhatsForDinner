@@ -12,6 +12,11 @@
 
 }
 
+.invisible {
+
+    display: none;
+}
+
 
 .getinfo {
     text-align: center;
@@ -267,6 +272,7 @@ input[type=text]:focus {
     display: inline-block;
     background-color: rgba(37, 49, 59,0.7);
     margin-bottom:5px;
+    margin-top:15px;
 
 }
 .imageresult {
@@ -301,9 +307,6 @@ a[data]:hover {
     background: rgba(0,0,0,0.5);
 }
 
-.flavors {
-
-}
 
 /* Scrollbar effects */
 ::-webkit-scrollbar {
@@ -367,6 +370,7 @@ a[data]:hover {
     background-color:#00a827;
     transform: translateY(3px);
 }
+
 
 #menuToggle
 {
@@ -502,3 +506,33 @@ body
     padding: 0;
 
 }
+.selected {
+    color: #00a827 !important;
+}
+
+.notYetSelected {
+    background-color: #555555 !important;
+    color: darkgrey !important;
+}
+
+
+.imgSize {
+    width: 5%;
+    height: 5%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.chartContainer {
+    margin-top: 15px;
+}
+
+.tasteDescription {
+    margin-right: 16px;
+    margin-left: 16px;
+    font-size: 8pt;
+    font-family: "Times New Roman";
+
+}
+
