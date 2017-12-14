@@ -78,7 +78,7 @@ public class Repository {
     }
 
 
-    public boolean addFavorite(int userID, String recipeName, String recipeID, String picURL) {
+    public void addFavorite(int userID, String recipeName, String recipeID, String picURL) {
         Connection dbconn = null;
 
         try {
@@ -89,7 +89,10 @@ public class Repository {
             ps.setString(2, recipeName);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) exists = false;
-                else return true;
+                else {
+                    System.out.println("already exists");
+                    return;
+                }
             }
             if (!exists) {
                 ps = conn.prepareStatement("INSERT INTO dbo.favoriteFood (userID, recipeID, recipeName, picURL) VALUES (?,?,?,?)");
@@ -104,7 +107,7 @@ public class Repository {
         } finally {
             closeDb(dbconn);
         }
-        return false;
+        System.out.println("item added?");
     }
 
     public String getFavorites(int UserID) {
