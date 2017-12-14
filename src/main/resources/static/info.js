@@ -107,14 +107,17 @@ function foodSearch() {
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
 
                                         + "<div class='bigPicture'>"
-                                        + "<div id='chartContainer" + i + "' 'salty=" + currentMatch.flavors.salty +"' 'sour=" + currentMatch.flavors.sour +"' 'sweet=" + currentMatch.flavors.sweet + "' style= height: 370px width = 100%>Click for flavor profile</div>"
-
+                                        + "<div id='chartContainer" + i 
+                                            + "' 'salty=" + currentMatch.flavors.salty 
+                                            + "' 'sour=" + currentMatch.flavors.sour 
+                                            + "' 'sweet=" + currentMatch.flavors.sweet 
                                         + "</div>"
                                         + "<div class='description'>"
-                                        + "<p class='recipename'>" + currentMatch.recipeName + "</p>"
+                                        + "<p class='recipename'>" + currentMatch.recipeName + "   "
+                                        + '<span recipeID="' + currentMatch.id + '" class="heartFavoriteButton">♥</span>'
+                                        + "</p>"
                                         + "<p class='ingredientlist'>" + ingredientsJoined + "</p>"
                                         + "</div>"
-                                        + '<div recipeID="' + currentMatch.id + '" class="heartFavoriteButton">♥</div>'
                                         + "</div>");
             }
         },
