@@ -367,3 +367,7 @@ a[data]:hover {
     background-color:#00a827;
     transform: translateY(3px);
 }
+
+.selected {
+    background-color: #00a827 !important;
+}
