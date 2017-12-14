@@ -369,5 +369,10 @@ a[data]:hover {
 }
 
 .selected {
-    background-color: #00a827 !important;
+    color: #00a827 !important;
+}
+
+.notYetSelected {
+    background-color: #555555 !important;
+    color: darkgrey !important;
 }

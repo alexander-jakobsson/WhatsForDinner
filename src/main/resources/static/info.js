@@ -6,10 +6,6 @@ function myFunction() {
     // popup.classList.toggle("hide");
 }
 
-function favoriteSelected(){
-    var selected = document.getElementsByClassName("description")
-    selected.classlist.toggle("selected")
-}
 
 document.getElementById("searchButton").addEventListener("click", foodSearch, false);
 document.getElementById("favoritebtn").addEventListener("click", displayFavorites, false);
@@ -113,7 +109,7 @@ function foodSearch() {
                                             + "' 'sour=" + currentMatch.flavors.sour 
                                             + "' 'sweet=" + currentMatch.flavors.sweet 
                                         + "</div>"
-                                        + "<div class='description'>"
+                                        + "<div id='" + currentMatch.id + "' class='description'>"
                                         + "<p class='recipename'>" + currentMatch.recipeName + "   "
                                         + '<span recipeID="' + currentMatch.id + '" class="heartFavoriteButton">♥</span>'
                                         + "</p>"
@@ -189,6 +185,9 @@ $(document).on("click","#results .heartFavoriteButton", function(){
     console.log("You just clicked a Heart Button! :)")
     console.log(event.target);
     addToFavorites(event.target.getAttribute("recipeID"));
+    event.target.classList.toggle("selected");
+    addToFavoritesBtn.classList.toggle("notYetSelected");
+    //favoriteSelected(event.target);
 });
 
 $(document).on("click","#results .removefavorite", function(){
