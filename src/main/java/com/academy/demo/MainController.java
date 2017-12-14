@@ -66,4 +66,12 @@ public class MainController {
         session.setAttribute("favorites", repository.getFavorites((int) session.getAttribute("userid")));
         return new ModelAndView("index").addObject("favorites", repository.getFavorites((int) session.getAttribute("userid")));
     }
+
+    @PostMapping ("/indexr")
+    public ModelAndView removeFavorites (HttpSession session, @RequestParam String notFavoriteAnymore) {
+        int userID = (int) session.getAttribute("userid");
+        repository.removeFavorite(userID, notFavoriteAnymore);
+        session.setAttribute("favorites", repository.getFavorites((int) session.getAttribute("userid")));
+        return new ModelAndView("index").addObject("favorites", repository.getFavorites((int) session.getAttribute("userid")));
+    }
 }
