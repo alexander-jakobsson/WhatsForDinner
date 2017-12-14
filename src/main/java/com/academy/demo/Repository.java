@@ -110,6 +110,31 @@ public class Repository {
         System.out.println("item added?");
     }
 
+    public void removeFavorite(int userID, String recipeName) {
+        Connection dbconn = null;
+
+        try {
+            Connection conn = dataSource.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT RecipeName FROM FavoriteFood WHERE userID = ? AND recipeName = ?");
+            ps.setInt(1, userID);
+            ps.setString(2, recipeName);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    ps = conn.prepareStatement("  DELETE FROM dbo.FavoriteFood \n" +
+                            "  where userID = ? AND RecipeName = ?");
+                    ps.setInt(1, userID);
+                    ps.setString(2, recipeName);
+                    ps.executeUpdate();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeDb(dbconn);
+        }
+        System.out.println("item added?");
+    }
+
     public String getFavorites(int UserID) {
         Connection dbconn = null;
 
