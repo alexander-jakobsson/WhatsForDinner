@@ -57,15 +57,11 @@ function addToFavorites(recipeID) {
         
 
         success: function(data) {
-
-            $( "#hiddenFavorites form" )
-                .append( 
-                    
-                    '<input id="' + recipeID + '" name="newFavorite" type="hidden" value="'
-                    + data.name + ", "
+                    document.getElementById("toBeAdded").value =
+                    data.name + ", "
                     + data.source.sourceRecipeUrl + ", "
-                    + data.images[0].hostedLargeUrl + '">'
-                );
+                    + data.images[0].hostedLargeUrl
+
         },
 
         type: 'GET'

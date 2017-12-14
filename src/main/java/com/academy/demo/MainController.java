@@ -57,4 +57,14 @@ public class MainController {
         res.addCookie(cookie);
         return "login";
     }
+
+    @PostMapping ("/index")
+    public void addFavorite (HttpSession session, @RequestParam String newFavorite) {
+        String[] favoriteData = newFavorite.split(",");
+        int userID = (int) session.getAttribute("userid");
+        String recipeName = favoriteData[0];
+        String recipeURL = favoriteData[1];
+        String pictureURL = favoriteData[2];
+        repository.addFavorite(userID, recipeName, recipeURL, pictureURL);
+    }
 }
