@@ -11,10 +11,27 @@
         <div id="hiddenFavorites" style="display: none">
             <form action="index" method="post"></form>
         </div>
+        <nav role="navigation">
+            <div id="menuToggle">
+
+                <input type="checkbox" />
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <ul id="menu">
+                    <a href="#"><li>Home</li></a>
+                    <a href="#"><li>About</li></a>
+                    <form name="logoutForm" th:action="@{/logout}" method="get">
+                    <a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
+                    </form>
+                </ul>
+
+            </div>
+        </nav>
         <div id="logo">
             <img id="logga" src="/bilder/logga.png"/>
-
-
         </div>
         <div class="getinfo">
                 <input type="text" id= "searchBar" name="searchBar" placeholder="Enter ingredients.."/>
