@@ -141,7 +141,9 @@ function displayFavorites() {
             +"</div>"
             +"<div class='flavorProfile' function flavors()></div>"
             + "<div class='description'>"
-            + "<p class='recipename'>" + favoriteData[0] + "</p>"
+            + "<p class='recipename'>" + favoriteData[0] 
+            + "<span id='" + favoriteData[0] + "' class='removefavorite'>      ~~~ . ⃠ . </span>"
+            + "</p>"
         + "</div>"
         + "</div>")
     }
@@ -184,6 +186,12 @@ $(document).on("click","#results .description", function(){
     console.log("You just clicked a description div! :)")
 });
 $(document).on("click","#results .heartFavoriteButton", function(){
+    console.log("You just clicked a Heart Button! :)")
+    console.log(event.target);
+    addToFavorites(event.target.getAttribute("recipeID"));
+});
+
+$(document).on("click","#results .removefavorite", function(){
     console.log("You just clicked a Heart Button! :)")
     console.log(event.target);
     addToFavorites(event.target.getAttribute("recipeID"));
