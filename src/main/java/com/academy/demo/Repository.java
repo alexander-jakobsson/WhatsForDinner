@@ -119,14 +119,17 @@ public class Repository {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM dbo.FavoriteFood WHERE userID = ?");
             ps.setInt(1, UserID);
             ResultSet rs = ps.executeQuery();
-            if (!rs.next()) return "";
+
             StringBuilder favoriteRecipes = new StringBuilder();
             while (rs.next()) {
                         favoriteRecipes.append( rs.getString("recipeName") + ","
                         + rs.getString("recipeID") + ","
                         + rs.getString("picURL") +  ";");
             }
-            return favoriteRecipes.substring(0, favoriteRecipes.length() - 1);
+            if (favoriteRecipes.length()<1){ return "";}
+            else {
+                return favoriteRecipes.substring(0, favoriteRecipes.length() - 1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
