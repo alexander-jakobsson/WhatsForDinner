@@ -1,4 +1,4 @@
-
+var beenClicked = false;
 //adds class if not present, removes class if present.
 function myFunction() {
     var popup = document.getElementById("infopop");
@@ -210,6 +210,30 @@ $(document).on("click","#results .removefavorite", function(){
     removeFromFavorites(event.target.getAttribute("id"));
    // addToFavorites(event.target.getAttribute("recipeID"));
 });
+
+
+$(document).on("click", "#favoritebtn", function(){
+
+    if (!beenClicked) {
+        $("#removeFromFavoritesBtn").toggleClass("invisible");
+        $("#addToFavoritesBtn").toggleClass("invisible");
+    }
+    beenClicked = true;
+});
+
+$(document).on("click", "#searchButton", function(){
+    beenClicked = false;
+    if (!$("#removeFromFavoritesBtn").hasClass("invisible")) {
+        $("#removeFromFavoritesBtn").toggleClass("invisible");
+        $("#addToFavoritesBtn").toggleClass("invisible");
+    }
+    
+});
+
+$(document).on("click", "#removeFromFavoritesBtn", function(){
+    beenClicked = false;
+});
+
 
 function flavors(){
     currentMatch = data.matches[i];

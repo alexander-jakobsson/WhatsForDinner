@@ -12,6 +12,10 @@
 
 }
 
+.invisible {
+    display: none;
+}
+
 
 .getinfo {
     text-align: center;
@@ -301,9 +305,6 @@ a[data]:hover {
     background: rgba(0,0,0,0.5);
 }
 
-.flavors {
-
-}
 
 /* Scrollbar effects */
 ::-webkit-scrollbar {
