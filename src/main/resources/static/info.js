@@ -118,10 +118,12 @@ function foodSearch() {
                 $( "#results" ).append("<div id=\"" + currentMatch.id + "\">"
 
                                         + "<div class='bigPicture'>"
+                                        + "<div class='flavorProfile' function flavors()></div>"
                                         + "<div id='chartContainer" + i 
                                             + "' 'salty=" + currentMatch.flavors.salty 
                                             + "' 'sour=" + currentMatch.flavors.sour 
-                                            + "' 'sweet=" + currentMatch.flavors.sweet 
+                                            + "' 'sweet=" + currentMatch.flavors.sweet
+                                            + "' 'piquant=" + currentMatch.flavors.piquant
                                         + "</div>"
                                         + "<div id='" + currentMatch.id + "' class='description'>"
                                         + "<p class='recipename'>" + currentMatch.recipeName + "   "
@@ -149,7 +151,6 @@ function displayFavorites() {
             + "<a href=" + favoriteData[1] + " target=_blank>"
             + "<img title='Click to go to recipe' class='imageresult' src=\"" + favoriteData[2] + "\" ></a>"
             +"</div>"
-            +"<div class='flavorProfile' function flavors()></div>"
             + "<div class='description'>"
             + "<p class='recipename'>" + favoriteData[0] 
             + "<span id='" + favoriteData[0] + "' class='removefavorite'>      ~~~ . ⃠ . </span>"
