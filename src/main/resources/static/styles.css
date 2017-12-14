@@ -456,7 +456,7 @@ a[data]:hover {
 }
 
 /*
- * Ohyeah and the last one should go the other direction
+ * the last one should go the other direction
  */
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
