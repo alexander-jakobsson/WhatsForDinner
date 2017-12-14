@@ -8,9 +8,7 @@
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
 </head>
 <body background="bilder/bakgrund.jpeg">
-        <div id="hiddenFavorites" style="display: none">
-            <form action="index" method="post"></form>
-        </div>
+
         <div id="logo">
             <img id="logga" src="/bilder/logga.png"/>
 
@@ -23,14 +21,17 @@
 
             <p class="btn btn-success buttonStyling" id="searchButton">Search</p>
             <p class="btn btn-success buttonStyling" id="favoritebtn">Favourites</p>
-            <p class="btn btn-success buttonStyling" id="addToFavoritesBtn">AddToFavourites</p>
-            
+            <form class="addFavorite"  action="/index" method="post">
+                    <input id="toBeAdded" name="newFavorite" type="hidden" value=""/>
+                    <input class="btn btn-success buttonStyling" type="submit" id="addToFavoritesBtn" value="Add to Favorites"></input>
+            </form>
+
         </div>
         <div id="resultbox">
             <div id="results" class="popuptext popup"></div>
         </div>
 
-            <div  style="display: none" id="favoritestring" th:text="${session.favorites}"></div>
+            <div  style="display: none" id="favoritestring" th:text="${favorites}"></div>
 
 
 
