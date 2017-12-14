@@ -6,6 +6,11 @@ function myFunction() {
     // popup.classList.toggle("hide");
 }
 
+function favoriteSelected(){
+    var selected = document.getElementsByClassName("description")
+    selected.classlist.toggle("selected")
+}
+
 document.getElementById("searchButton").addEventListener("click", foodSearch, false);
 document.getElementById("favoritebtn").addEventListener("click", displayFavorites, false);
 document.getElementById("searchBar").onkeypress = function(e) {
@@ -134,6 +139,7 @@ function displayFavorites() {
             + "<a href=" + favoriteData[1] + " target=_blank>"
             + "<img title='Click to go to recipe' class='imageresult' src=\"" + favoriteData[2] + "\" ></a>"
             +"</div>"
+            +"<div class='flavorProfile' function flavors()></div>"
             + "<div class='description'>"
             + "<p class='recipename'>" + favoriteData[0] + "</p>"
         + "</div>"
@@ -183,3 +189,21 @@ $(document).on("click","#results .heartFavoriteButton", function(){
     addToFavorites(event.target.getAttribute("recipeID"));
 });
 
+function flavors(){
+    currentMatch = data.matches[i];
+    var spicy=currentMatch.flavors.piquant;
+    if (spicy<0.1667 ) {
+
+    }else if (spicy < 0.34 ){
+
+    }else if(spicy<0.501){
+
+    }else if(spicy<0.67){
+
+    }else if(spicy<0.84){
+
+    }else{
+
+    }
+
+}
