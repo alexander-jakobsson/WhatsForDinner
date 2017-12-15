@@ -378,6 +378,7 @@ a[data]:hover {
     position: relative;
     top: 50px;
     left: 50px;
+    border-radius: 6px;
 
     z-index: 1;
 
@@ -470,6 +471,7 @@ a[data]:hover {
     margin: -100px 0 0 -50px;
     padding: 50px;
     text-align: center;
+    border-radius: 6px;
 
     background-color: rgba(37, 39, 76, 0.5);
     list-style-type: none;
