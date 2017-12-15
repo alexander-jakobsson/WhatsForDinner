@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>WhatsForDinner</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400" rel="stylesheet"/>
+    <link href="signin.css" rel="stylesheet"/>
+</head>
+<body background="bilder/bakgrund.jpeg">
+<nav role="navigation">
+    <div id="menuToggle">
+
+        <input type="checkbox" />
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <ul id="menu">
+            <a href="/index" role="menuitem" th:action="@{/about}" method="post"><li>Home</li></a>
+            <a href="/about" role="menuitem" th:action="@{/about}" method="get"><li>About</li></a>
+            <form name="logoutForm" th:action="@{/logout}" method="get">
+                <a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
+            </form>
+        </ul>
+
+    </div>
+</nav>
+<div id="logo">
+    <img id="logga" src="/bilder/logga.png"/>
+</div>
+<div class="about">
+    <h5>Do you find yourself having trouble coming up with what food to cook?</h5>
+    <p class="producttext">With <Strong>What's For Dinners</Strong> help, you will never
+    have to face that problem again! With our application, you can simply just type in
+    what ingredients you have at home right now. We will help you access thousands of recipes!
+    Not only that, but you can also save your favorites, so you'll always have them in hand,
+    wherever you are.</p>
+</div>
+<div class="about">
+<h5>The Creators</h5>
+</div>
+<div class="aboutustext">
+    <p class="producttext"><strong>Robin</strong></p>
+    <p class="producttext"><strong>Alexander</strong></p>
+    <p class="producttext"><strong>Christian</strong></p>
+    <p class="producttext"><strong>Erik</strong></p>
+</div>
+
+<div class ="aboutus">
+    <img src="/bilder/academybildrobin.jpg"/>
+    <img src="/bilder/alexander.jpg"/>
+    <img src="/bilder/christian.png"/>
+    <img src="/bilder/erik.jpg"/>
+</div>
+</body>
+</html>

@@ -19,6 +19,8 @@ public class MainController {
     User user;
     Recipe[] favorites;
 
+    @GetMapping("/")
+    public ModelAndView loginfirstpage(){return new ModelAndView("login"); }
 
     @GetMapping("/login")
     public ModelAndView logIn() {
@@ -53,6 +55,16 @@ public class MainController {
         cookie.setMaxAge(0);
         res.addCookie(cookie);
         return "login";
+    }
+
+    @GetMapping("/about")
+    public ModelAndView about(){
+        return new ModelAndView("about");
+    }
+
+    @GetMapping("/index")
+    public ModelAndView home(){
+        return new ModelAndView("index");
     }
 
     @PostMapping ("/index")

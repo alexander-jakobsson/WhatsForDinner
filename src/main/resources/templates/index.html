@@ -21,8 +21,8 @@
                 <span></span>
 
                 <ul id="menu">
-                    <a href="#"><li>Home</li></a>
-                    <a href="#"><li>About</li></a>
+                    <a href="/index" th:action="@{/index}" method="get"><li>Home</li></a>
+                    <a href="/about" role="menuitem"><li>About</li></a>
                     <form name="logoutForm" th:action="@{/logout}" method="get">
                     <a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
                     </form>
@@ -74,6 +74,7 @@
             </div>
             </div>
         </div>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
