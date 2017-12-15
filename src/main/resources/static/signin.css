@@ -276,15 +276,15 @@ body
     text-align: center;
 }
 .aboutustext {
-    padding: 10px;
-    justify-content: space-around;
-    display: flex;
+    padding-top: 20px;
+    width: 25em;
     text-align: center;
+    align-items: center;
 }
 img {
-    width: 200px;
-    height: 225px;
-    border-radius: 6px;
+    width: 15em;
+    height: 18em;
+    border-radius: 1em;
 }
 
 .about {
@@ -296,10 +296,24 @@ img {
     margin: auto;
 }
 
-h5{
+h3, h5{
     color: darkgreen;
 }
 
 .producttext {
     color: darkgreen;
+}
+
+.containerabout {
+    display: flex;
+    padding-top: 20px;
+}
+
+.headline {
+    padding-top: 20px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
 }

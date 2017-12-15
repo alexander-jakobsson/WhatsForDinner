@@ -13,17 +13,21 @@
 <nav role="navigation">
     <div id="menuToggle">
 
-        <input type="checkbox" />
+        <input type="checkbox"/>
 
         <span></span>
         <span></span>
         <span></span>
 
         <ul id="menu">
-            <a href="/index" role="menuitem" th:action="@{/about}" method="post"><li>Home</li></a>
-            <a href="/about" role="menuitem" th:action="@{/about}" method="get"><li>About</li></a>
+            <a href="/index" role="menuitem" th:action="@{/about}" method="post">
+                <li><strong>Home</strong></li>
+            </a>
+            <a href="/about" role="menuitem" th:action="@{/about}" method="get">
+                <li><strong>About</strong></li>
+            </a>
             <form name="logoutForm" th:action="@{/logout}" method="get">
-                <a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
+                <a href="javascript: document.logoutForm.submit()" role="menuitem"><strong>Logout</strong></a>
             </form>
         </ul>
 
@@ -35,26 +39,32 @@
 <div class="about">
     <h5>Do you find yourself having trouble coming up with what food to cook?</h5>
     <p class="producttext">With <Strong>What's For Dinners</Strong> help, you will never
-    have to face that problem again! With our application, you can simply just type in
-    what ingredients you have at home right now. We will help you access thousands of recipes!
-    Not only that, but you can also save your favorites, so you'll always have them in hand,
-    wherever you are.</p>
+        have to face that problem again! With our application, you can simply just type in
+        what ingredients you have at home right now. We will help you access thousands of recipes!
+        Not only that, but you can also save your favorites, so you'll always have them in hand,
+        wherever you are.</p>
 </div>
-<div class="about">
-<h5>The Creators</h5>
+<div class="headline">
+    <h3>The Creators</h3>
 </div>
-<div class="aboutustext">
-    <p class="producttext"><strong>Robin</strong></p>
-    <p class="producttext"><strong>Alexander</strong></p>
-    <p class="producttext"><strong>Christian</strong></p>
-    <p class="producttext"><strong>Erik</strong></p>
+<div class="containerabout">
+    <div class="aboutustext">
+        <p class="producttext" id="robin"><strong>Robin</strong></p>
+        <img src="/bilder/academybildrobin.jpg"/>
+    </div>
+    <div class="aboutustext">
+        <p class="producttext" id="alexander"><strong>Alexander</strong></p>
+        <img src="/bilder/alexander.jpg"/>
+    </div>
+    <div class="aboutustext">
+        <p class="producttext" id="christian"><strong>Christian</strong></p>
+        <img src="/bilder/christian.png"/>
+    </div>
+    <div class="aboutustext">
+        <p class="producttext" id="erik"><strong>Erik</strong></p>
+        <img src="/bilder/erik.jpg"/>
+    </div>
 </div>
 
-<div class ="aboutus">
-    <img src="/bilder/academybildrobin.jpg"/>
-    <img src="/bilder/alexander.jpg"/>
-    <img src="/bilder/christian.png"/>
-    <img src="/bilder/erik.jpg"/>
-</div>
 </body>
 </html>
