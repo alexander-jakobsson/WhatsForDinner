@@ -54,7 +54,8 @@ button:hover {
 
 .ml16 {
     color: darkgreen;
-    padding: 40px 0;
+    padding: 20px;
+    padding-top: 100px;
     font-weight: 800;
     font-size: 2em;
     text-transform: uppercase;
