@@ -82,7 +82,7 @@ function removeFromFavorites(recipeName) {
         document.getElementById("toBeRemoved").value = "";
     } else { */
         document.getElementById("toBeRemoved").value = recipeName;        
-    
+
 }
 
 function foodSearch() {
@@ -240,7 +240,7 @@ $(document).on("click", "#searchButton", function(){
 
 $(document).on("click", "#removeFromFavoritesBtn", function(){
     beenClicked = false;
-    event.target.classList.toggle("selected");
+    event.target.classList.toggle("removefavorite");
     removeFromFavoritesBrn.classList.toggle("notYetSelected");
 
 });
